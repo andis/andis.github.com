@@ -1,5 +1,0 @@
-task :default => 'basic.html'
-
-file 'basic.html' do |f|
-  sh 'haml', 'basic.haml', f.to_s
-end

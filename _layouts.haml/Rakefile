@@ -1,0 +1,13 @@
+require 'rake/clean'
+
+CLEAN.include('*.html')
+
+def haml(*star)
+  sh 'haml', '--format=html5', *star
+end
+
+task :default => 'basic.html'
+
+rule '.html' => '.haml' do |s|
+  haml s.source, File.join('../_layouts',s.name)
+end
